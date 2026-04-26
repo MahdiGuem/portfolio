@@ -14,8 +14,8 @@ const FuturisticPortfolio = () => {
       fullDescription: "NeoRail is a real-time decision support system for rail networks, serving as a smart operational memory using Retrieval-Augmented Generation (RAG) to quickly access past solutions, avoiding slow calculations and high-stress human guesswork during disruptions. The platform bridges the gap between field conductors and central control admins, ensuring every operational decision is backed by the best historical data available. Features include voice-native incident reporting via Web Speech API, visual evidence capture, AI-powered golden run retrieval using Qdrant vector search, and a command center dashboard for reviewing field reports and selecting AI-validated resolution protocols.",
       tech: ["Next.js", "Qdrant","Supabase","Prisma", "TypeScript", "Auth.js", , "FastAPI", "Tailwind CSS"],
       liveLink: "https://neorail.demo.com",
-      screenshot: "/Neorail_screenshot.png",
-      video: "/Neorail_video.mp4"
+      screenshot: "./Neorail_screenshot.png",
+      video: "./Neorail_video.mp4"
     },
     {
     "title": "KeepMyBusiness",
@@ -23,8 +23,8 @@ const FuturisticPortfolio = () => {
     "fullDescription": "KeepMyBusiness (KMB) is an enterprise resource planning platform for managing client registrations, content cards, and administrative workflows. Features include dynamic content display with video/text/product cards, client request submission and approval system, role-based admin dashboard, and JWT-secured API endpoints.",
     "tech": ["Next.js", "MongoDB", "Spring Boot", "Java", "TypeScript", "Tailwind CSS", "NextUI", "Framer Motion"],
     "liveLink": "https://keepmybusiness.demo.com",
-    "screenshot": "/kmb_screenshot.png",
-    "video": "/kmb_video.mp4"
+    "screenshot": "./kmb_screenshot.png",
+    "video": "./kmb_video.mp4"
   }
 
   ];
