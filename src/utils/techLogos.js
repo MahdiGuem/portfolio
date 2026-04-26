@@ -21,7 +21,7 @@ export const techLogos = {
   'Prisma': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg',
   'Tailwind CSS': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
   'AuthJS': 'https://authjs.dev/img/logo-sm.png',
-  'Qdrant': 'public/qdrant-brandmark-red.svg',
+  'Qdrant': './qdrant-brandmark-red.svg',
   'Spring Boot': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
   'NextUI': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
   'Java': 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',

@@ -78,7 +78,7 @@ const IDCard = () => {
             <div className="absolute inset-0 bg-cyan-500/20 blur-2xl rounded-full animate-pulse" />
             <div className="relative w-full h-full rounded-3xl border border-white/20 overflow-hidden bg-black shadow-2xl">
                <img 
-                 src="/pfp.png" 
+                 src="./pfp.png" 
                  alt="Profile" 
                  className="w-full h-full object-cover scale-110"
                />
@@ -106,13 +106,14 @@ const IDCard = () => {
           </div>
 
           {/* ACTION BUTTON */}
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-black text-xs uppercase tracking-widest shadow-[0_10px_20px_rgba(34,211,238,0.3)] cursor-pointer"
+          <a 
+            href="./Mahdi_Guemri_Resume_2026-04-26.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full py-4 text-center rounded-2xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-black text-xs uppercase tracking-widest shadow-[0_10px_20px_rgba(34,211,238,0.3)] cursor-pointer"
           >
             Download CV
-          </motion.button>
+          </a>
         </div>
 
         {/* DECORATIVE WIREFRAME ELEMENT */}

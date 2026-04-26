@@ -34,17 +34,17 @@ const ProjectOverlay = ({ project, isOpen, onClose }) => {
           </svg>
         </button>
 
-        <div className="relative aspect-video rounded-t-3xl overflow-hidden">
+        <div className="relative aspect-video rounded-t-3xl overflow-hidden bg-black">
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="w-full h-full object-cover"
+            controls
+            className="w-full h-full object-contain"
           >
             <source src={video} type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent" />
         </div>
 
         <div className="p-8 space-y-6">
