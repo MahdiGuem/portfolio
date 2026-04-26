@@ -78,7 +78,7 @@ const IDCard = () => {
             <div className="absolute inset-0 bg-cyan-500/20 blur-2xl rounded-full animate-pulse" />
             <div className="relative w-full h-full rounded-3xl border border-white/20 overflow-hidden bg-black shadow-2xl">
                <img 
-                 src="/public/pfp.png" 
+                 src="/pfp.png" 
                  alt="Profile" 
                  className="w-full h-full object-cover scale-110"
                />
