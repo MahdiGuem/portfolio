@@ -107,7 +107,7 @@ const IDCard = () => {
 
           {/* ACTION BUTTON */}
           <a 
-            href="./Mahdi_Guemri_Resume_2026-04-26.pdf"
+            href="./Mahdi_Guemri_Resume_2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="block w-full py-4 text-center rounded-2xl bg-gradient-to-r from-cyan-500 to-violet-600 text-white font-black text-xs uppercase tracking-widest shadow-[0_10px_20px_rgba(34,211,238,0.3)] cursor-pointer"

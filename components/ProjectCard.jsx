@@ -4,9 +4,11 @@ import { techLogos } from '../src/utils/techLogos';
 
 const ProjectCard = ({ project, onOpen }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const videoRef = useRef(null);
 
   const { title, description, tech, screenshot, video } = project;
+  const hasVideo = video && !videoError;
 
   const handleClick = () => {
     if (onOpen) onOpen(project);
@@ -32,21 +34,35 @@ const ProjectCard = ({ project, onOpen }) => {
 
         <AnimatePresence mode="wait">
           {isHovered && (
-            <motion.video
-              key="video"
-              ref={videoRef}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover opacity-90 scale-105"
-            >
-              <source src={video} type="video/mp4" />
-            </motion.video>
+            hasVideo ? (
+              <motion.video
+                key="video"
+                ref={videoRef}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover opacity-90 scale-105"
+                onError={() => setVideoError(true)}
+              >
+                <source src={video} type="video/mp4" />
+              </motion.video>
+            ) : (
+              <motion.div
+                key="video-placeholder"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="absolute inset-0 w-full h-full bg-zinc-900 flex items-center justify-center"
+              >
+                <span className="text-cyan-400 text-sm font-medium uppercase tracking-widest">Video demo in progress</span>
+              </motion.div>
+            )
           )}
         </AnimatePresence>
 

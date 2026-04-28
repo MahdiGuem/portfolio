@@ -1,13 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { techLogos } from '../src/utils/techLogos';
 
 
 
+
 const ProjectOverlay = ({ project, isOpen, onClose }) => {
+  const [videoError, setVideoError] = useState(false);
+  
   if (!isOpen) return null;
 
   const { title, fullDescription, tech, liveLink, video, screenshot } = project;
+  const hasVideo = video && !videoError;
 
   return (
     <motion.div
@@ -35,16 +39,23 @@ const ProjectOverlay = ({ project, isOpen, onClose }) => {
         </button>
 
         <div className="relative aspect-video rounded-t-3xl overflow-hidden bg-black">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            className="w-full h-full object-contain"
-          >
-            <source src={video} type="video/mp4" />
-          </video>
+          {hasVideo ? (
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              className="w-full h-full object-contain"
+              onError={() => setVideoError(true)}
+            >
+              <source src={video} type="video/mp4" />
+            </video>
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center bg-zinc-900">
+              <span className="text-cyan-400 text-sm font-medium uppercase tracking-widest">Video demo in progress</span>
+            </div>
+          )}
         </div>
 
         <div className="p-8 space-y-6">

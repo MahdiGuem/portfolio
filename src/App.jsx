@@ -22,10 +22,18 @@ const FuturisticPortfolio = () => {
     "description": "Multi-client ERP system with request management and content display.",
     "fullDescription": "KeepMyBusiness (KMB) is an enterprise resource planning platform for managing client registrations, content cards, and administrative workflows. Features include dynamic content display with video/text/product cards, client request submission and approval system, role-based admin dashboard, and JWT-secured API endpoints.",
     "tech": ["Next.js", "MongoDB", "Spring Boot", "Java", "TypeScript", "Tailwind CSS", "NextUI", "Framer Motion"],
-    "liveLink": "https://keepmybusiness.demo.com",
     "screenshot": "./kmb_screenshot.png",
     "video": "./kmb_video.mp4"
-  }
+    },
+    {
+      "title": "TaskFlow",
+      "description": "A team productivity platform with project tracking, custom KPI performance analytics, and feedback system.",
+      "fullDescription": "TaskFlow is an end-to-end employee management solution designed to streamline project workflows and boost team productivity. The platform enables managers to create projects, assign tasks, and monitor employee performance through intuitive dashboards. Key features include KPI sheet management with customizable templates, real-time performance tracking with visual analytics, bidirectional feedback systems between team members, and comprehensive project discussion boards. Built with Next.js and MongoDB, TaskFlow leverages modern authentication via NextAuth.js and offers a responsive, dark-mode-ready UI with Tailwind CSS.",
+      "tech": ["Next.js", "TypeScript", "MongoDB", "Supabase", "Auth.js", "Tailwind CSS", "Zod"],
+      "liveLink": "https://taskflow.demo.com",
+      "screenshot": "./Taskflow_screenshot.webp",
+      "video": "./TaskFlow_video.mp4"
+    }
 
   ];
 
