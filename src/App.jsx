@@ -25,6 +25,14 @@ const FuturisticPortfolio = () => {
     "screenshot": "./kmb_screenshot.png",
     "video": "./kmb_video.mp4"
     },
+      {
+    "title": "CIIP",
+    "description": "Digital readiness assessment platform for enterprises with guided questionnaires and admin management.",
+    "fullDescription": "CIIP (Critical Infrastructure Information Platform) is an enterprise assessment platform for evaluating company digital maturity across multiple domains. Features include role-based access with OTP authentication, domain and company questionnaires with selectable/writable/sub-question types, voice-enabled guided questionnaire with TTS, real-time support chat, animated login carousel, responsive dashboard with progress tracking, and a Dockerized full-stack deployment with automated testing.",
+    "tech": ["React", "Node.js", "Express", "MongoDB", "Redis", "Docker", "Nginx", "Tailwind CSS", "Jest"],
+    "screenshot": "./ciip_screenshot.png",
+    "video": "./ciip_video.mp4"
+    },
     {
       "title": "TaskFlow",
       "description": "A team productivity platform with project tracking, custom KPI performance analytics, and feedback system.",
