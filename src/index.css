@@ -6,38 +6,36 @@
   --font-display: 'Oxanium', 'Arial Narrow', system-ui, sans-serif;
   --font-mono: 'Oxanium', ui-monospace, Consolas, monospace;
 
-  --color-void: #060b12;
-  --color-navy: #0d1620;
-  --color-navy2: #142130;
-  --color-navy3: #1d2e40;
-  --color-vblue: #00a0ff;
-  --color-vblue2: #2684ff;
-  --color-vsky: #5bc8ff;
-  --color-vmuted: #8a99ab;
-  --color-vtext: #d6dee9;
-  --color-vline: rgba(148, 190, 226, 0.16);
-  --color-vline2: rgba(148, 190, 226, 0.34);
+  --color-void: #05080f;
+  --color-navy: #0d1322;
+  --color-navy2: #131c31;
+  --color-navy3: #1b2744;
+  --color-vblue: #0055ff;
+  --color-vblue2: #2b70ff;
+  --color-vsky: #60a5fa;
+  --color-vmuted: #8ca3c7;
+  --color-vtext: #e2e8f0;
+  --color-vline: rgba(96, 165, 250, 0.2);
+  --color-vline2: rgba(96, 165, 250, 0.4);
 }
 
 @layer base {
   :root {
     color-scheme: dark;
 
-    --v-cut: 14px;
-    --v-panel: rgba(13, 22, 32, 0.86);
-    --v-panel-solid: #0d1620;
+    --v-panel: #0d1322;
+    --v-panel-solid: #0d1322;
 
-    --text: #b6c2d0;
+    --text: #94a3b8;
     --text-h: #ffffff;
-    --bg: #060b12;
-    --border: rgba(148, 190, 226, 0.16);
-    --code-bg: #142130;
-    --accent: #00a0ff;
-    --accent-bg: rgba(0, 160, 255, 0.12);
-    --accent-border: rgba(0, 160, 255, 0.5);
-    --social-bg: rgba(20, 33, 48, 0.6);
-    --shadow:
-      rgba(0, 0, 0, 0.5) 0 10px 15px -3px, rgba(0, 0, 0, 0.35) 0 4px 6px -2px;
+    --bg: #05080f;
+    --border: rgba(96, 165, 250, 0.2);
+    --code-bg: #131c31;
+    --accent: #0055ff;
+    --accent-bg: rgba(0, 85, 255, 0.15);
+    --accent-border: rgba(0, 85, 255, 0.6);
+    --social-bg: rgba(19, 28, 49, 0.8);
+    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
 
     --sans: 'Barlow', system-ui, 'Segoe UI', Roboto, sans-serif;
     --heading: 'Oxanium', 'Arial Narrow', system-ui, sans-serif;
@@ -75,11 +73,12 @@
     font-family: var(--heading);
     font-weight: 700;
     color: var(--text-h);
+    text-transform: uppercase;
   }
 
   h1 {
     font-size: 56px;
-    letter-spacing: -1.68px;
+    letter-spacing: -0.02em;
     margin: 32px 0;
     @media (max-width: 1024px) {
       font-size: 36px;
@@ -89,7 +88,7 @@
   h2 {
     font-size: 24px;
     line-height: 118%;
-    letter-spacing: -0.24px;
+    letter-spacing: -0.01em;
     margin: 0 0 8px;
     @media (max-width: 1024px) {
       font-size: 20px;
@@ -103,7 +102,7 @@
   .counter {
     font-family: var(--mono);
     display: inline-flex;
-    border-radius: 4px;
+    border-radius: 0px;
     color: var(--text-h);
   }
 
@@ -112,75 +111,52 @@
     line-height: 135%;
     padding: 4px 8px;
     background: var(--code-bg);
+    border: 1px solid var(--border);
   }
 
   ::selection {
-    background: rgba(0, 160, 255, 0.35);
+    background: rgba(0, 85, 255, 0.4);
     color: #ffffff;
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0a121b;
+    background: #05080f;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(0, 160, 255, 0.32);
+    background: rgba(0, 85, 255, 0.4);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 160, 255, 0.6);
+    background: rgba(0, 85, 255, 0.7);
   }
 
   html {
-    scrollbar-color: rgba(0, 160, 255, 0.4) #0a121b;
+    scrollbar-color: rgba(0, 85, 255, 0.4) #05080f;
   }
 }
 
 @layer components {
-  /* ---------------- angular geometry ---------------- */
+  /* ---------------- clean rectangular geometry ---------------- */
   .v-shape {
-    clip-path: polygon(
-      0 0,
-      calc(100% - var(--v-cut, 14px)) 0,
-      100% var(--v-cut, 14px),
-      100% 100%,
-      var(--v-cut, 14px) 100%,
-      0 calc(100% - var(--v-cut, 14px))
-    );
+    border-radius: 0px;
   }
-  .v-cut-xs {
-    --v-cut: 4px;
-  }
-  .v-cut-sm {
-    --v-cut: 7px;
-  }
-  .v-cut {
-    --v-cut: 14px;
-  }
-  .v-cut-lg {
-    --v-cut: 22px;
-  }
-  .v-cut-xl {
-    --v-cut: 30px;
+  .v-cut-xs, .v-cut-sm, .v-cut, .v-cut-lg, .v-cut-xl {
+    --v-cut: 0px;
   }
 
   /* ---------------- panels ---------------- */
-  /* Hairline angular frame: the element background is the ring,
-     the ::before fills the interior with the panel colour. */
   .v-frame {
     position: relative;
     isolation: isolate;
-    background: var(--v-frame-ring, rgba(148, 190, 226, 0.18));
+    background: var(--v-panel-solid);
+    border: 1px solid var(--border);
+    border-radius: 0px;
   }
   .v-frame::before {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    z-index: -1;
-    clip-path: inherit;
-    background: var(--v-panel);
+    content: none;
   }
 
   /* ---------------- typography ---------------- */
@@ -188,25 +164,27 @@
     font-family: var(--heading);
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.01em;
-    line-height: 0.95;
+    letter-spacing: 0.02em;
+    line-height: 1.1;
     color: #ffffff;
   }
   .v-heading::after {
     content: '';
     display: block;
-    width: 72px;
-    height: 3px;
-    margin: 18px auto 0;
+    width: 48px;
+    height: 4px;
+    margin: 16px 0 0;
     background: var(--color-vblue);
-    box-shadow: 0 0 14px rgba(0, 160, 255, 0.65);
-    clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
+    box-shadow: none;
+    clip-path: none;
+    border-radius: 0px;
   }
   .v-kicker {
     font-family: var(--heading);
     text-transform: uppercase;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.2em;
     color: var(--color-vsky);
+    font-weight: 700;
   }
 
   /* ---------------- nav ---------------- */
@@ -215,22 +193,22 @@
     font-family: var(--heading);
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.15em;
     color: var(--color-vmuted);
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
   }
   .v-nav-link::after {
     content: '';
     position: absolute;
-    left: 14px;
-    right: 14px;
-    bottom: 4px;
+    left: 0;
+    right: 0;
+    bottom: -4px;
     height: 2px;
     background: var(--color-vblue);
     transform: scaleX(0);
     transform-origin: left center;
-    transition: transform 0.22s ease;
-    clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
+    transition: transform 0.15s ease;
+    clip-path: none;
   }
   .v-nav-link:hover {
     color: #ffffff;
@@ -246,38 +224,35 @@
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    padding: 0.9rem 2rem;
+    padding: 0.85rem 2rem;
     font-family: var(--heading);
     font-weight: 700;
-    font-size: 0.8125rem;
+    font-size: 0.875rem;
     text-transform: uppercase;
-    letter-spacing: 0.22em;
-    color: #04121f;
+    letter-spacing: 0.15em;
+    color: #ffffff;
     background: var(--color-vblue);
-    clip-path: polygon(
-      12px 0,
-      100% 0,
-      calc(100% - 12px) 100%,
-      0 100%
-    );
-    transition:
-      background-color 0.22s ease,
-      box-shadow 0.22s ease,
-      color 0.22s ease;
+    border: none;
+    border-radius: 0px;
+    clip-path: none;
+    transition: background-color 0.15s ease, transform 0.1s ease;
   }
   .v-btn:hover {
-    background: var(--color-vsky);
-    box-shadow: 0 0 28px rgba(0, 160, 255, 0.55);
+    background: var(--color-vblue2);
+  }
+  .v-btn:active {
+    transform: translateY(1px);
   }
   .v-btn-ghost {
-    color: var(--color-vsky);
+    color: #ffffff;
     background: transparent;
-    box-shadow: inset 0 0 0 1px rgba(0, 160, 255, 0.5);
+    border: 2px solid var(--color-vblue);
+    box-shadow: none;
   }
   .v-btn-ghost:hover {
-    color: #04121f;
-    background: var(--color-vsky);
-    box-shadow: 0 0 24px rgba(0, 160, 255, 0.4);
+    background: var(--color-vblue);
+    color: #ffffff;
+    box-shadow: none;
   }
 
   /* ---------------- chips ---------------- */
@@ -285,95 +260,52 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.4rem 0.7rem;
+    padding: 0.35rem 0.75rem;
     font-family: var(--heading);
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     color: var(--color-vmuted);
-    background: rgba(0, 160, 255, 0.06);
-    box-shadow: inset 0 0 0 1px rgba(148, 190, 226, 0.16);
-    clip-path: polygon(
-      6px 0,
-      100% 0,
-      calc(100% - 6px) 100%,
-      0 100%
-    );
-    transition:
-      color 0.2s ease,
-      background-color 0.2s ease,
-      box-shadow 0.2s ease;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 0px;
+    clip-path: none;
+    transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
   }
   .v-chip:hover {
     color: #ffffff;
-    background: rgba(0, 160, 255, 0.16);
-    box-shadow: inset 0 0 0 1px rgba(0, 160, 255, 0.55);
+    background: var(--color-navy3);
+    border-color: var(--color-vsky);
   }
 
-  /* small angular callout tag */
+  /* small rectangular callout tag */
   .v-tag {
     display: inline-flex;
     align-items: center;
-    padding: 0.25rem 0.75rem;
+    padding: 0.2rem 0.6rem;
     font-family: var(--heading);
-    font-size: 0.625rem;
-    font-weight: 600;
+    font-size: 0.6875rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--color-vsky);
-    background: rgba(0, 160, 255, 0.18);
-    box-shadow: inset 0 0 0 1px rgba(0, 160, 255, 0.55);
-    clip-path: polygon(
-      6px 0,
-      100% 0,
-      calc(100% - 6px) 100%,
-      0 100%
-    );
+    letter-spacing: 0.15em;
+    color: #ffffff;
+    background: var(--color-vblue);
+    border: none;
+    border-radius: 0px;
+    clip-path: none;
   }
 
-  /* ---------------- texture ---------------- */
-  .v-stripes {
-    background-image: repeating-linear-gradient(
-      135deg,
-      rgba(0, 160, 255, 0.05) 0 1px,
-      transparent 1px 14px
-    );
-  }
-  .v-scanlines {
-    background-image: repeating-linear-gradient(
-      to bottom,
-      rgba(0, 160, 255, 0.07) 0 1px,
-      transparent 1px 3px
-    );
-  }
-  .v-scan {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(0, 160, 255, 0.12) 46%,
-      rgba(0, 160, 255, 0.5) 50%,
-      rgba(0, 160, 255, 0.12) 54%,
-      transparent 100%
-    );
-    background-size: 100% 45%;
-    animation: v-scan 6s linear infinite;
-  }
-  @keyframes v-scan {
-    0% {
-      background-position: 0 -50%;
-    }
-    100% {
-      background-position: 0 150%;
-    }
+  /* ---------------- clean textures (removed scanlines/stripes) ---------------- */
+  .v-stripes, .v-scanlines, .v-scan {
+    background-image: none;
+    background: none;
+    animation: none;
+    display: none;
   }
 
-  /* thin tactical scrollbar */
   .v-scroll {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 160, 255, 0.4) #0a121b;
+    scrollbar-color: rgba(0, 85, 255, 0.4) #05080f;
   }
 }
