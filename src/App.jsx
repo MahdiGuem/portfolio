@@ -176,17 +176,6 @@ const NavBar = ({ showCV = false }) => {
 
   return (
     <div className="relative w-full min-h-screen bg-void text-white overflow-hidden font-sans">
-      {/* Unified Background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-vblue/12 blur-[120px] animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-vblue2/10 blur-[120px] animate-pulse transition-all duration-700" />
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{ backgroundImage: `linear-gradient(to right, rgba(120,170,220,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(120,170,220,0.06) 1px, transparent 1px)`, backgroundSize: '4rem 4rem', maskImage: 'radial-gradient(ellipse at center, black, transparent 80%)' }}
-        />
-        <div className="absolute inset-0 v-stripes opacity-60" />
-      </div>
-
       {/* Desktop Layout */}
       <div className="hidden lg:flex h-screen">
         {/* Left: ID Card + Nav Bar */}

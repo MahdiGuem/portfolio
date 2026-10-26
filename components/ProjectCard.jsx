@@ -67,7 +67,7 @@ const ProjectCard = ({ project, onOpen }) => {
             )}
           </AnimatePresence>
 
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-void/40 to-transparent" />
+          <div className="absolute inset-0 bg-slate-950/55" />
         </div>
 
         {/* CONTENT LAYER */}

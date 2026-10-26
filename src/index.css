@@ -6,36 +6,36 @@
   --font-display: 'Oxanium', 'Arial Narrow', system-ui, sans-serif;
   --font-mono: 'Oxanium', ui-monospace, Consolas, monospace;
 
-  --color-void: #05080f;
-  --color-navy: #0d1322;
-  --color-navy2: #131c31;
-  --color-navy3: #1b2744;
-  --color-vblue: #0055ff;
-  --color-vblue2: #2b70ff;
-  --color-vsky: #60a5fa;
-  --color-vmuted: #8ca3c7;
-  --color-vtext: #e2e8f0;
-  --color-vline: rgba(96, 165, 250, 0.2);
-  --color-vline2: rgba(96, 165, 250, 0.4);
+  --color-void: #f1f5f9;
+  --color-navy: #ffffff;
+  --color-navy2: #f8fafc;
+  --color-navy3: #e2e8f0;
+  --color-vblue: #58718c;
+  --color-vblue2: #465f79;
+  --color-vsky: #71879e;
+  --color-vmuted: #64748b;
+  --color-vtext: #0f172a;
+  --color-vline: rgba(100, 116, 139, 0.2);
+  --color-vline2: rgba(100, 116, 139, 0.4);
 }
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
 
-    --v-panel: #0d1322;
-    --v-panel-solid: #0d1322;
+    --v-panel: #ffffff;
+    --v-panel-solid: #ffffff;
 
-    --text: #94a3b8;
-    --text-h: #ffffff;
-    --bg: #05080f;
-    --border: rgba(96, 165, 250, 0.2);
-    --code-bg: #131c31;
-    --accent: #0055ff;
-    --accent-bg: rgba(0, 85, 255, 0.15);
-    --accent-border: rgba(0, 85, 255, 0.6);
-    --social-bg: rgba(19, 28, 49, 0.8);
-    --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+    --text: #475569;
+    --text-h: #0f172a;
+    --bg: #f8fafc;
+    --border: rgba(100, 116, 139, 0.25);
+    --code-bg: #f1f5f9;
+    --accent: #58718c;
+    --accent-bg: rgba(88, 113, 140, 0.08);
+    --accent-border: rgba(88, 113, 140, 0.4);
+    --social-bg: #ffffff;
+    --shadow: none;
 
     --sans: 'Barlow', system-ui, 'Segoe UI', Roboto, sans-serif;
     --heading: 'Oxanium', 'Arial Narrow', system-ui, sans-serif;
@@ -58,6 +58,7 @@
   body {
     margin: 0;
     background: var(--bg);
+    overflow-x: hidden;
   }
 
   #root {
@@ -115,8 +116,8 @@
   }
 
   ::selection {
-    background: rgba(0, 85, 255, 0.4);
-    color: #ffffff;
+    background: rgba(88, 113, 140, 0.2);
+    color: #0f172a;
   }
 
   ::-webkit-scrollbar {
@@ -124,22 +125,21 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #05080f;
+    background: #f1f5f9;
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(0, 85, 255, 0.4);
+    background: rgba(88, 113, 140, 0.3);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 85, 255, 0.7);
+    background: rgba(88, 113, 140, 0.6);
   }
 
   html {
-    scrollbar-color: rgba(0, 85, 255, 0.4) #05080f;
+    scrollbar-color: rgba(88, 113, 140, 0.3) #f1f5f9;
   }
 }
 
 @layer components {
-  /* ---------------- clean rectangular geometry ---------------- */
   .v-shape {
     border-radius: 0px;
   }
@@ -147,26 +147,133 @@
     --v-cut: 0px;
   }
 
-  /* ---------------- panels ---------------- */
   .v-frame {
     position: relative;
     isolation: isolate;
     background: var(--v-panel-solid);
     border: 1px solid var(--border);
     border-radius: 0px;
+    box-shadow: none;
   }
   .v-frame::before {
     content: none;
   }
 
-  /* ---------------- typography ---------------- */
+  /* --- ID Card Swinging Animation & Lanyard Structure --- */
+  @keyframes id-swing {
+    0% {
+      transform: rotate(-3deg);
+    }
+    50% {
+      transform: rotate(3deg);
+    }
+    100% {
+      transform: rotate(-3deg);
+    }
+  }
+
+  .id-card-container {
+    transform-origin: top center;
+    animation: id-swing 5s ease-in-out infinite;
+  }
+
+  /* ID Card top hanging slot / opening */
+  .id-card-slot {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 7px;
+    background: transparent;
+    border: 1px solid #71879e;
+    z-index: 30;
+  }
+
+  .id-lanyard-back-clip,
+  .id-lanyard-front-clip {
+    position: absolute;
+    top: calc(-100vh - 24px);
+    left: calc(50% - 50vw);
+    width: 100vw;
+    height: calc(100vh + 37px);
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .id-card-body {
+    mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+    mask-size: 100% 100%, 44px 7px;
+    mask-position: 0 0, center 10px;
+    mask-repeat: no-repeat;
+    mask-composite: exclude;
+    -webkit-mask-image: linear-gradient(#fff 0 0), linear-gradient(#fff 0 0);
+    -webkit-mask-size: 100% 100%, 44px 7px;
+    -webkit-mask-position: 0 0, center 10px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-composite: xor;
+  }
+
+  .id-lanyard-back {
+    position: absolute;
+    top: 0;
+    bottom: -6px;
+    left: calc(50% - 17px);
+    width: 17px;
+    background: #71879e;
+    transform: rotate(-12deg);
+    transform-origin: 50% calc(100% - 6px);
+    border-inline: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  .id-lanyard-back-clip {
+    z-index: 0;
+  }
+
+  .id-lanyard-front-clip {
+    z-index: 20;
+  }
+
+  .id-lanyard-front {
+    position: absolute;
+    top: 0;
+    bottom: -6px;
+    left: 50%;
+    width: 17px;
+    background: #71879e;
+    transform: rotate(12deg);
+    transform-origin: 50% calc(100% - 6px);
+    border-inline: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  .id-card-button-hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+
+  .id-card-button-hover::before {
+    transform: translateY(100%);
+  }
+
+  .id-card-button-hover:hover::before {
+    transform: translateY(100%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .id-card-container {
+      animation: none;
+    }
+  }
+
+  /* --- Typography & Elements --- */
   .v-heading {
     font-family: var(--heading);
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.02em;
     line-height: 1.1;
-    color: #ffffff;
+    color: var(--text-h);
   }
   .v-heading::after {
     content: '';
@@ -187,7 +294,6 @@
     font-weight: 700;
   }
 
-  /* ---------------- nav ---------------- */
   .v-nav-link {
     position: relative;
     font-family: var(--heading);
@@ -211,13 +317,13 @@
     clip-path: none;
   }
   .v-nav-link:hover {
-    color: #ffffff;
+    color: var(--text-h);
   }
   .v-nav-link:hover::after {
     transform: scaleX(1);
   }
 
-  /* ---------------- buttons ---------------- */
+  /* --- Hover Fill Effect (Rectangular Fill Over Card) --- */
   .v-btn {
     position: relative;
     display: inline-flex;
@@ -234,28 +340,40 @@
     background: var(--color-vblue);
     border: none;
     border-radius: 0px;
-    clip-path: none;
-    transition: background-color 0.15s ease, transform 0.1s ease;
-  }
-  .v-btn:hover {
-    background: var(--color-vblue2);
-  }
-  .v-btn:active {
-    transform: translateY(1px);
-  }
-  .v-btn-ghost {
-    color: #ffffff;
-    background: transparent;
-    border: 2px solid var(--color-vblue);
     box-shadow: none;
-  }
-  .v-btn-ghost:hover {
-    background: var(--color-vblue);
-    color: #ffffff;
-    box-shadow: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.2s ease;
   }
 
-  /* ---------------- chips ---------------- */
+  .v-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-vblue2);
+    transform: translateY(100%);
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: -1;
+  }
+
+  .v-btn:hover::before {
+    transform: translateY(0);
+  }
+
+  .v-btn-ghost {
+    color: var(--color-vblue);
+    background: transparent;
+    border: 2px solid var(--color-vblue);
+  }
+
+  .v-btn-ghost::before {
+    background: var(--color-vblue);
+  }
+
+  .v-btn-ghost:hover {
+    color: #ffffff;
+  }
+
   .v-chip {
     display: inline-flex;
     align-items: center;
@@ -270,16 +388,15 @@
     background: var(--code-bg);
     border: 1px solid var(--border);
     border-radius: 0px;
-    clip-path: none;
+    box-shadow: none;
     transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
   }
   .v-chip:hover {
-    color: #ffffff;
+    color: var(--text-h);
     background: var(--color-navy3);
     border-color: var(--color-vsky);
   }
 
-  /* small rectangular callout tag */
   .v-tag {
     display: inline-flex;
     align-items: center;
@@ -293,10 +410,9 @@
     background: var(--color-vblue);
     border: none;
     border-radius: 0px;
-    clip-path: none;
+    box-shadow: none;
   }
 
-  /* ---------------- clean textures (removed scanlines/stripes) ---------------- */
   .v-stripes, .v-scanlines, .v-scan {
     background-image: none;
     background: none;
@@ -306,6 +422,6 @@
 
   .v-scroll {
     scrollbar-width: thin;
-    scrollbar-color: rgba(0, 85, 255, 0.4) #05080f;
+    scrollbar-color: rgba(88, 113, 140, 0.3) #f1f5f9;
   }
 }
